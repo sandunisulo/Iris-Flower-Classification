@@ -1,0 +1,70 @@
+---
+title: "iris flower classification"
+author: "Sanduni Rathnapriya"
+date: "2024-07-07"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+*Here we analyze the iris flower data set*
+Load the data set
+```{r warning=FALSE,include=TRUE}
+
+data("iris")
+data1<- na.omit(iris)
+head(data1)
+```
+Here we predict the flower species by given sepal length,sepal width,petal length and petal width.
+Thus we find relationship between toes 4 parameters and species.
+```{r warning=FALSE,include=TRUE}
+library(ggplot2)
+
+```
+
+
+```{r warning=FALSE,include=TRUE}
+
+plot1<-ggplot(data1,aes(x=Species,fill=Species))+geom_bar()
+plot1
+
+```
+Consider about this plot we can see all the species are present same amount
+
+```{r warning=FALSE,include=TRUE}
+plot2<- ggplot(data1,aes(x=Species,y=Sepal.Length,fill=Species))+geom_boxplot()+labs(x="Species",y="Sepal Length")
+plot2
+
+```
+
+```{r warning=FALSE,include=TRUE}
+plot3<- ggplot(data1,aes(x=Species,y=Sepal.Width,fill=Species))+geom_boxplot()+labs(x="Species",y="Sepal Length")
+plot3
+
+
+```
+```{r warning=FALSE,include=TRUE}
+plot4<- ggplot(data1,aes(x=Species,y=data1$Petal.Length,fill=Species))+geom_boxplot()+labs(x="Species",y="Sepal Length")
+plot4
+
+```
+```{r warning=FALSE,include=TRUE}
+
+plot5<- ggplot(data1,aes(x=Species,y=Petal.Width,fill=Species))+geom_boxplot()+labs(x="Species",y="Sepal Length")
+plot5
+
+
+```
+```{r include=TRUE,warning=FALSE}
+plot6<- ggplot(data1,aes(x=Sepal.Width, y=Sepal.Length,color=Species))+geom_point()
+plot6
+
+```
+```{r}
+summary(data1)
+```
+
